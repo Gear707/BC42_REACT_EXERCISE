@@ -1,6 +1,10 @@
+import Layout from "./HeroicFeatures/Layout";
+
 function App() {
   return (
-    <div className="App"></div>
+    <div>
+      <Layout/>
+    </div>
   );
 }
 
