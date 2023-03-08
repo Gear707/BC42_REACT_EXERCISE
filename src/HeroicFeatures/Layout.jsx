@@ -1,13 +1,15 @@
 import React from 'react'
-import Body from './Body'
+import Banner from './Banner'
 import Footer from './Footer'
 import Header from './Header'
+import ItemList from './ItemList'
 
 function Layout() {
   return (
     <div>
         <Header/>
-        <Body/>
+        <Banner/>
+        <ItemList/>
         <Footer/>
     </div>
   )
