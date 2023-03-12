@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import "./style.css";
 
 function Item() {
     return (
@@ -12,4 +13,4 @@ function Item() {
     )
 }
 
-export default Item
+export default Item;
