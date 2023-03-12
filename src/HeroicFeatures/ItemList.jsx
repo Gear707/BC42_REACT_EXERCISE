@@ -1,5 +1,5 @@
-import React from 'react'
-import Item from './Item'
+import React from 'react';
+import Item from './Item';
 
 function ItemList() {
     return (
@@ -31,4 +31,4 @@ function ItemList() {
     )
 }
 
-export default ItemList
+export default ItemList;

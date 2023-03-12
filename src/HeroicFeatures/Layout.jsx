@@ -1,8 +1,8 @@
-import React from 'react'
-import Banner from './Banner'
-import Footer from './Footer'
-import Header from './Header'
-import ItemList from './ItemList'
+import React from 'react';
+import Banner from './Banner';
+import Footer from './Footer';
+import Header from './Header';
+import ItemList from './ItemList';
 
 function Layout() {
   return (
@@ -15,4 +15,4 @@ function Layout() {
   )
 }
 
-export default Layout
+export default Layout;
