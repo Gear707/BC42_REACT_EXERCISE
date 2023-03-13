@@ -1,6 +1,10 @@
+import GlassesApp from "./GlassesApp/GlassesApp";
+
 function App() {
   return (
-    <div className="App"></div>
+    <div>
+      <GlassesApp/>
+    </div>
   );
 }
 
