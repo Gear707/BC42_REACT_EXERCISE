@@ -56,8 +56,7 @@ function GlassApp() {
             transform: translate(-50%, 0);
             opacity: 0.7;
         }
-    }
-  `;
+    }`;
 
   return (
     <div style={bgStyle}>
