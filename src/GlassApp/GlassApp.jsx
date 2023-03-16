@@ -8,10 +8,10 @@ import data from './data.json';
 console.log(data);
 
 function GlassApp() {
-  // tạo mảng mới glassList từ data
+  // tạo mảng mới glassList từ data đã import
   const glassList = [...data];
 
-  // tạo state mặc định cho 3 thuộc tính của data: url, name, desc
+  // tạo state mặc định cho 3 thuộc tính của glassList: url, name, desc
   const [glassImageURL, setGlassImageURL] = useState(glassList[0].url);
   const [glassName, setGlassName] = useState(glassList[0].name);
   const [glassDesc, setGlassDesc] = useState(glassList[0].desc);
