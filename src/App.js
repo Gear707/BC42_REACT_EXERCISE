@@ -1,9 +1,9 @@
-import GlassesApp from "./GlassesApp/GlassesApp";
+import GlassApp from "./GlassApp/GlassApp";
 
 function App() {
   return (
     <div>
-      <GlassesApp/>
+      <GlassApp />
     </div>
   );
 }

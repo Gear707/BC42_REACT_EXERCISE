@@ -1,0 +1,12 @@
+.overlay {
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* .backgroundImg {
+    background-image: url(./img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+} */
