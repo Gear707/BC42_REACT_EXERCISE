@@ -32,8 +32,38 @@ function GlassApp() {
     backgroundSize: 'cover',
   };
 
+  // chỉnh css cho mẫu kính
+  const sampleGlass = {
+    width: '145px',
+    position: 'absolute',
+    top: '25%',
+    left: '50%',
+    transform: 'translate(-50%, 0)',
+    opacity: '0.7',
+    animation: `glassAnimation${Date.now()} 0.5s linear`
+  };
+
+  // tạo animation đổi kính
+  const keyFrames = `
+      @keyframes glassAnimation${Date.now()} {
+        from {
+            width: 0;
+            transform: translate(-50%, -900%);
+            opacity: 0;
+        }
+        to {
+            width: 145px;
+            transform: translate(-50%, 0);
+            opacity: 0.7;
+        }
+    }
+  `;
+
   return (
     <div style={bgStyle}>
+      <style>
+        {keyFrames}
+      </style>
       <div className={contentStyle.overlay}>
         <h3 className={`d-flex justify-content-center align-items-center ${headerStyle.header}`}>
           TRY GLASSES APP ONLINE
@@ -41,7 +71,7 @@ function GlassApp() {
         <div className='container'>
           <div className='d-flex justify-content-center align-items-center my-5 position-relative'>
             <img src="./img/model.jpg" alt="model 2" className={modelStyle.modelImg} />
-            <img src={glassImageURL} alt="sample" className={modelStyle.sampleGlass} />
+            <img src={glassImageURL} alt="sample" style={sampleGlass} />
             <div className={modelStyle.details}>
               <h5 className={modelStyle.brandName} >{glassName}</h5>
               <p className={modelStyle.description} >{glassDesc}</p>

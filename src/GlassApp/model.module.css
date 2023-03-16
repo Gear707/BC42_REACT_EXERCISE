@@ -3,14 +3,15 @@
     object-fit: contain;
 }
 
-.sampleGlass {
+/* .sampleGlass {
     width: 145px;
     position: absolute;
     top: 25%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.7;
-}
+    animation: glassAnimation 0.5s linear;
+} */
 
 .details{
     position: absolute;
@@ -32,3 +33,12 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+/* @keyframes glassAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 145px;
+    }
+} */
