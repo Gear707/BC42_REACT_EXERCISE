@@ -8,9 +8,9 @@ function ShoeStore() {
     console.log(shoeList);
 
     return (
-        <div className="container text-center my-3">
-            <h1>ShoeStore</h1>
-            <ProductList products={shoeList}/>
+        <div className="container my-3">
+            <h1 className="text-center">Shoe Store</h1>
+            <ProductList productArr={shoeList}/>
         </div>
     )
 }

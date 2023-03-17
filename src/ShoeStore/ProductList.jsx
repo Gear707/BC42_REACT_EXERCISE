@@ -1,12 +1,12 @@
 import React from 'react';
 import ProductItem from "./ProductItem";
 
-function ProductList({ products }) {
+function ProductList({ productArr }) {
     return (
         <div className="row">
-            {products.map((item) => {
+            {productArr.map((item) => {
                 return (
-                    <div key={item.id} className="col-4 my-3">
+                    <div key={item.id} className="col-4 my-4">
                         <ProductItem product={item} />
                     </div>
                 )
