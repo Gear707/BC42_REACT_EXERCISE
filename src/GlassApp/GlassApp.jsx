@@ -11,7 +11,7 @@ function GlassApp() {
   // tạo mảng mới glassList từ data đã import
   const glassList = [...data];
 
-  // tạo state mặc định cho 3 thuộc tính của glassList: url, name, desc
+  // tạo state mặc định cho 3 thuộc tính của các object trong glassList: url, name, desc
   const [glassImageURL, setGlassImageURL] = useState(glassList[0].url);
   const [glassName, setGlassName] = useState(glassList[0].name);
   const [glassDesc, setGlassDesc] = useState(glassList[0].desc);
@@ -82,7 +82,6 @@ function GlassApp() {
             {glassList.map((item) => {
               return (
                 <div key={item.id} className="m-auto p-auto">
-                  {/* truyền hàm handleGlass đã khai báo ở trên vào props của component con GlassItem */}
                   <GlassItem glass={item} onSelectGlass={handleGlass} />
                 </div>
               )
