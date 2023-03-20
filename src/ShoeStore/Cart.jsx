@@ -55,7 +55,6 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                         </div>
                         <div className="modal-footer">
                             <button className="btn btn-secondary" onClick={onHidePopup}>Close</button>
-                            <button className="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
