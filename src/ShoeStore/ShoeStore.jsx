@@ -2,16 +2,31 @@ import React, { useState } from 'react';
 import ProductList from "./ProductList";
 import data from "./data.json";
 import Cart from "./Cart";
+import Swal from "sweetalert2";
 
 function ShoeStore() {
     // create a new array (shoeList) from the data imported
     const shoeList = [...data];
     console.log(shoeList);
-    
+
     // create a state of showing/hiding a modal (popup)
     const [showPopup, setShowPopup] = useState(false);
     // create a state of which product we choose to add to the cart
     const [cart, setCart] = useState([]);
+
+    // use sweetalert2 library to create varied alerts
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 800
+    })
+    const alertSuccess = (text) => {
+        Toast.fire({
+            icon: 'success',
+            title: text
+        })
+    };
 
     // add products to cart
     const handleAddToCart = (product) => {
@@ -30,6 +45,9 @@ function ShoeStore() {
             newCart[index].quantity -= 1;
             setCart(newCart);
         }
+
+        // display the alert
+        alertSuccess('Successfully added to the cart');
     };
 
     // remove any product from cart
@@ -37,6 +55,9 @@ function ShoeStore() {
         // only display items that don't have the same id as productID
         const newCart = cart.filter((item) => item.id !== productID);
         setCart(newCart);
+
+        // display the alert
+        alertSuccess('Successfully deleted from the cart');
     };
 
     // adjust the number of products added to cart
