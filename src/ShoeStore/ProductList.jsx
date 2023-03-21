@@ -1,11 +1,7 @@
 import React from 'react';
 import ProductItem from "./ProductItem";
 
-function ProductList({ productArr, onSelectProduct, onAddToCart }) {
-    const handleGetProduct = (product) => {
-        onSelectProduct(product);
-    };
-
+function ProductList({ productArr, onAddToCart }) {
     const handleAddToCart = (product) => {
         onAddToCart(product);
     };
@@ -15,10 +11,7 @@ function ProductList({ productArr, onSelectProduct, onAddToCart }) {
             {productArr.map((item) => {
                 return (
                     <div key={item.id} className="col-4 my-4">
-                        <ProductItem product={item}
-                            onSelectProduct={handleGetProduct}
-                            onAddToCart={handleAddToCart}
-                        />
+                        <ProductItem product={item} onAddToCart={handleAddToCart} />
                     </div>
                 )
             })}

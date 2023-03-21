@@ -2,23 +2,16 @@ import React, { useState } from 'react';
 import ProductList from "./ProductList";
 import data from "./data.json";
 import Cart from "./Cart";
-import ProductDetail from "./ProductDetail";
 
 function ShoeStore() {
     // create a new array (shoeList) from the data imported
     const shoeList = [...data];
     console.log(shoeList);
-    // create a state of changing products
-    const [selectedProduct, setSelectedProduct] = useState(null);
+    
     // create a state of showing/hiding a modal (popup)
     const [showPopup, setShowPopup] = useState(false);
     // create a state of which product we choose to add to the cart
     const [cart, setCart] = useState([]);
-
-    // get product data needed
-    const handleGetProduct = (product) => {
-        setSelectedProduct(product);
-    };
 
     // add products to cart
     const handleAddToCart = (product) => {
@@ -66,25 +59,18 @@ function ShoeStore() {
         <div className="container my-3">
             <h1 className="text-center">Shoe Store</h1>
             <div className="d-flex justify-content-end">
-                <button className="btn btn-info" onClick={() => setShowPopup(true)}>
+                <button className="btn btn-warning" onClick={() => setShowPopup(true)}>
                     <i className="bi bi-cart-check"></i>
                     {totalItem > 0 && <span className="ms-2">({totalItem})</span>}
                 </button>
             </div>
             <ProductList productArr={shoeList}
-                onSelectProduct={handleGetProduct}
-                onAddToCart={handleAddToCart}
-            />
-            <ProductDetail product={selectedProduct}
-                showPopup={showPopup}
-                onHidePopup={() => setShowPopup(false)}
-            />
+                onAddToCart={handleAddToCart} />
             <Cart cart={cart}
                 showPopup={showPopup}
                 onHidePopup={() => setShowPopup(false)}
                 onDeleteProduct={handleDeleteProductFromCart}
-                onUpdateNumber={handleUpdateNumber}
-            />
+                onUpdateNumber={handleUpdateNumber} />
         </div>
     )
 }
