@@ -30,19 +30,19 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                                     {cart.map((item) => {
                                         return (
                                             <tr key={item.id}>
-                                                <td>{item.id}</td>
+                                                <td className="text-center">{item.id}</td>
                                                 <td>{item.name}</td>
                                                 <td>
                                                     <img src={item.image} alt={item.name} width="70px" />
                                                 </td>
                                                 <td >{item.description}</td>
-                                                <td>{item.quantity}</td>
-                                                <td>
-                                                    <button className="btn btn-light align-baseline px-1 lh-1" onClick={() => onUpdateNumber(item.id, -1)}>-</button>
+                                                <td className="text-center">{item.quantity}</td>
+                                                <td className="text-center">
+                                                    <button className="btn btn-light align-baseline px-1 lh-1" onClick={() => onUpdateNumber(item.id, -1)} disabled={item.number === 1}>-</button>
                                                     <span className="mx-1">{item.number}</span>
                                                     <button className="btn btn-light align-baseline px-1 lh-1" onClick={() => onUpdateNumber(item.id, 1)}>+</button>
                                                 </td>
-                                                <td>${item.price * item.number}</td>
+                                                <td className="text-center">${item.price * item.number}</td>
                                                 <td>
                                                     <button className="btn btn-danger" onClick={() => onDeleteProduct(item.id)}>
                                                         <i className="bi bi-trash"></i>
@@ -55,9 +55,12 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                             </table>
                         </div>
                         <h3 className="d-flex justify-content-end mx-4 mb-3">
-                            Total price: ${cart.reduce((total, item) => {
-                                return total += +item.number * +item.price;
-                            }, 0)}
+                            Total:
+                            <span className="ms-1" style={{color: "darkblue"}}>
+                                ${cart.reduce((total, item) => {
+                                    return total += +item.number * +item.price;
+                                }, 0)}
+                            </span>
                         </h3>
                         <div className="modal-footer">
                             <button className="btn btn-secondary" onClick={onHidePopup}>Close</button>

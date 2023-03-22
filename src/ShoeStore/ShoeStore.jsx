@@ -81,7 +81,7 @@ function ShoeStore() {
         <div className="container my-3">
             <h1 className="text-center">Shoe Store</h1>
             <div className="d-flex justify-content-end">
-                <button className="btn btn-warning" onClick={() => setShowPopup(true)}>
+                <button className="btn btn-warning fs-5" onClick={() => setShowPopup(true)}>
                     <i className="bi bi-cart-check"></i>
                     {totalItem > 0 && <span className="ms-2">({totalItem})</span>}
                 </button>
