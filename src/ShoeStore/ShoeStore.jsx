@@ -3,6 +3,7 @@ import ProductList from "./ProductList";
 import data from "./data.json";
 import Cart from "./Cart";
 import Swal from "sweetalert2";
+import "./btnStyle.scss";
 
 function ShoeStore() {
     // create a new array (shoeList) from the data imported
@@ -34,15 +35,15 @@ function ShoeStore() {
         const index = cart.findIndex((item) => item.id === product.id);
 
         if (index === -1) {
-            // if the product is not yet added => push the product to the cart and set a new property that is number with value 1
+            // if the product is not yet added => push the product to the cart and set a new property - number with value 1
             // at the same time, the quantity property is decreased by 1
-            const newProduct = { ...product, quantity: product.quantity -= 1, number: 1 };
+            const newProduct = { ...product, quantity: --product.quantity, number: 1 };
             setCart([...cart, newProduct]);
         } else {
             // if the product already exists => we just need to increase the number by 1 and decrease the quantity by 1 respectively
             const newCart = [...cart];
-            newCart[index].number += 1;
-            newCart[index].quantity -= 1;
+            ++newCart[index].number;
+            --newCart[index].quantity;
             setCart(newCart);
         }
 
