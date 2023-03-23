@@ -62,7 +62,7 @@ function ShoeStore() {
         alertSuccess('Successfully added to the cart');
     };
 
-    // remove any product from cart
+    // remove products from the cart
     const handleDeleteProductFromCart = (productID) => {
         // only display items that don't have the same id as productID
         const newCart = cart.filter((item) => item.id !== productID);
@@ -72,7 +72,7 @@ function ShoeStore() {
         alertSuccess('Successfully deleted from the cart');
     };
 
-    // adjust the number of products added to cart
+    // adjust the number of products added to the cart
     const handleUpdateNumber = (productID, addedNumber) => {
         const newCart = cart.map((item) => {
             if (item.id === productID) {
@@ -87,7 +87,7 @@ function ShoeStore() {
         setCart(newCart);
     };
 
-    // display total number of products added to cart
+    // display total number of products added to the cart
     const totalItemInCart = cart.reduce((total, item) => {
         return total + item.number;
     }, 0);
