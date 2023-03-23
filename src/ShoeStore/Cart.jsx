@@ -56,7 +56,7 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                         </div>
                         <h3 className="d-flex justify-content-end mx-4 mb-3">
                             Total:
-                            <span className="ms-1" style={{color: "darkblue"}}>
+                            <span className="ms-1">
                                 ${cart.reduce((total, item) => {
                                     return total += +item.number * +item.price;
                                 }, 0)}
