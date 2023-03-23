@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber }) {
-    if (!showPopup) return null;
+function Cart({ cart, showCart, onHideCart, onDeleteProduct, onUpdateNumber }) {
+    if (!showCart) return null;
 
     return (
         <>
@@ -10,7 +10,7 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                     <div className="modal-content">
                         <div className="modal-header">
                             <h2 className="modal-title">All Products In Cart</h2>
-                            <button class="btn-close" onClick={onHidePopup}></button>
+                            <button class="btn-close" onClick={onHideCart}></button>
                         </div>
                         <div className="modal-body pb-0">
                             <table className="table align-middle">
@@ -35,7 +35,7 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                                                 <td>
                                                     <img src={item.image} alt={item.name} width="70px" />
                                                 </td>
-                                                <td >{item.description}</td>
+                                                <td >{item.shortDescription}</td>
                                                 <td className="text-center">{item.quantity}</td>
                                                 <td className="text-center">
                                                     <button className="btn btn-light align-baseline px-1 lh-1" onClick={() => onUpdateNumber(item.id, -1)} disabled={item.number === 1}>-</button>
@@ -63,7 +63,7 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                             </span>
                         </h3>
                         <div className="modal-footer">
-                            <button className="btn btn-secondary" onClick={onHidePopup}>Close</button>
+                            <button className="btn btn-secondary" onClick={onHideCart}>Close</button>
                         </div>
                     </div>
                 </div>
