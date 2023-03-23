@@ -42,7 +42,7 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                                                     <span className="mx-1">{item.number}</span>
                                                     <button className="btn btn-light align-baseline px-1 lh-1" onClick={() => onUpdateNumber(item.id, 1)}>+</button>
                                                 </td>
-                                                <td className="text-center">${item.price * item.number}</td>
+                                                <td className="text-center">${(item.number * item.price).toLocaleString()}</td>
                                                 <td>
                                                     <button className="btn btn-danger" onClick={() => onDeleteProduct(item.id)}>
                                                         <i className="bi bi-trash"></i>
@@ -56,10 +56,10 @@ function Cart({ cart, showPopup, onHidePopup, onDeleteProduct, onUpdateNumber })
                         </div>
                         <h3 className="d-flex justify-content-end mx-4 mb-3">
                             Total:
-                            <span className="ms-1">
+                            <span className="ms-2">
                                 ${cart.reduce((total, item) => {
                                     return total += +item.number * +item.price;
-                                }, 0)}
+                                }, 0).toLocaleString()}
                             </span>
                         </h3>
                         <div className="modal-footer">
