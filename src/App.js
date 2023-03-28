@@ -1,6 +1,10 @@
+import PhoneManagement from "./PhoneManagement/PhoneManagement";
+
 function App() {
   return (
-    <div></div>
+    <div>
+      <PhoneManagement />
+    </div>
   );
 }
 
