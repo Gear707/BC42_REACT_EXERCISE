@@ -1,6 +1,10 @@
+import MovieBooking from "./MovieBooking/MovieBooking";
+
 function App() {
   return (
-    <div></div>
+    <div>
+      <MovieBooking />
+    </div>
   );
 }
 
