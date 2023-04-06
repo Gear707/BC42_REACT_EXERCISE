@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SeatSelection from "./SeatSelection";
 import SeatInfo from "./SeatInfo";
 import "./style.scss";
 import data from "./data.json";
+import { useDispatch, useSelector } from "react-redux";
 
 function MovieBooking() {
-    // tạo mới mảng dữ liệu ghế
-    const seats = [...data];
+    const { allSeats, selectedSeats } = useSelector((state) => {
+        const allSeats = state.allSeatsReducer.allSeats;
+        const selectedSeats = state.selectedSeatsReducer.selectedSeats;
+
+        return { allSeats, selectedSeats };
+    });
+
+    const dispatch = useDispatch();
+
+    const handleAddSeat = (seatNumber, price) => {
+        const selectedSeats = {
+            soGhe: seatNumber,
+            gia: price
+        };
+        dispatch({ type: "selectedSeats/add_seat", payload: selectedSeats });
+    };
+
+    const handleDeleteSeat = (seatNumber) => {
+        dispatch({ type: "selectedSeats/delete_seat", payload: seatNumber });
+    };
+
+    useEffect(() => {
+        const allSeats = [...data];
+        dispatch({ type: "allSeats/render_seats", payload: allSeats });
+        console.log("Rendering");
+    }, [selectedSeats, dispatch]);
+
 
     // chỉnh style cho phần background
     const mainStyle = {
@@ -33,13 +59,13 @@ function MovieBooking() {
                         <div className="d-flex flex-row justify-content-center mt-2">
                             <div className="screen"></div>
                         </div>
-                        <SeatSelection seats={seats} />
+                        <SeatSelection allSeats={allSeats} selectedSeats={selectedSeats} onAddSeat={handleAddSeat} />
                     </div>
                     <div className="col-4 text-light">
                         <div className="text-center fs-3 text-uppercase fw-bold my-3 text-info">
                             Danh sách ghế chọn
                         </div>
-                        <SeatInfo />
+                        <SeatInfo selectedSeats={selectedSeats} onDeleteSeat={handleDeleteSeat} />
                     </div>
                 </div>
             </div>

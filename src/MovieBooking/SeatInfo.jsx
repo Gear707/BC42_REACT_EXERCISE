@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SeatInfo() {
+function SeatInfo({ selectedSeats, onDeleteSeat }) {
     return (
         <div>
             <div className="d-flex">
@@ -25,7 +25,18 @@ function SeatInfo() {
                         </tr>
                     </thead>
                     <tbody>
-
+                        {selectedSeats.map((seat) => {
+                            return (
+                                <tr key={seat.soGhe}>
+                                    <td>{seat.soGhe}</td>
+                                    <td>{seat.gia}</td>
+                                    <td>
+                                        <button className="btn btn-danger"
+                                            onClick={() => onDeleteSeat(seat.soGhe)}>X</button>
+                                    </td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
 
