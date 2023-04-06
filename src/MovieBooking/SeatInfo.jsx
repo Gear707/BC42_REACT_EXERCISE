@@ -25,9 +25,9 @@ function SeatInfo({ selectedSeats, onDeleteSeat }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {selectedSeats.map((seat) => {
+                        {selectedSeats.map((seat, index) => {
                             return (
-                                <tr key={seat.soGhe}>
+                                <tr key={index}>
                                     <td>{seat.soGhe}</td>
                                     <td>{seat.gia}</td>
                                     <td>

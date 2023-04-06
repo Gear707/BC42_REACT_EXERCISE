@@ -1,7 +1,3 @@
-// @font-face {
-//     font-family: 'fontGame';
-//     src: url('../font/Pony.ttf');
-// }
 $color-1: rgb(109, 238, 109);
 $customBorder: 50px solid;
 $seatBorder: 3px solid orange;
@@ -13,9 +9,6 @@ $seatBorder: 3px solid orange;
 }
 
 .overlay {
-    // position: fixed;
-    // height: 100%;
-    // width: 100%;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -28,7 +21,7 @@ $seatBorder: 3px solid orange;
     width: 85%;
     filter: drop-shadow(4px 30px 20px rgba(255, 255, 255, 0.5));
     font-size: 25px;
-    color: #fff;
+    color: white;
 }
 
 .emptySeats {
