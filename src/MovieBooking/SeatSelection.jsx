@@ -1,6 +1,20 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
-function SeatSelection({ allSeats, selectedSeats, onAddSeat }) {
+function SeatSelection() {
+    const { allSeats, selectedSeats } = useSelector(state => state);
+
+    const dispatch = useDispatch();
+
+    // thêm ghế vào danh sách chọn
+    const handleAddSeat = (number, price) => {
+        const selectedSeats = {
+            soGhe: number,
+            gia: price,
+        };
+        dispatch({ type: "add_seat", payload: selectedSeats });
+    };
+
     return (
         <div className="mb-5">
             {allSeats.map((row, index) => {
@@ -20,16 +34,17 @@ function SeatSelection({ allSeats, selectedSeats, onAddSeat }) {
                                 let bookedSeatClass = seat.daDat ? "bookedSeat" : "";
                                 let selectedSeatClass = "";
                                 // kiểm tra tất cả ghế đã render với các ghế đang có trong danh sách chọn
-                                let seatIndex = selectedSeats.findIndex((selectedSeat) => selectedSeat.soGhe === seat.soGhe);
+                                let seatIndex = selectedSeats.findIndex(
+                                    (selectedSeat) => selectedSeat.soGhe === seat.soGhe
+                                );
                                 // nếu tồn tại ghế đã chọn thì gán class selectedSeat (màu xanh)
                                 if (seatIndex !== -1) selectedSeatClass = "selectedSeat";
                                 return (
                                     // nếu ghế đã được đặt trước thì sẽ có màu cam & không thể chọn được
-                                    // nếu ghế còn trống thì sẽ có màu trắng & chọn bình thường
-                                    <button key={index}
-                                        disabled={seat.daDat}
+                                    // nếu ghế còn trống thì sẽ có màu trắng và chọn bình thường
+                                    <button key={index} disabled={seat.daDat}
                                         className={`${bookedSeatClass} ${selectedSeatClass} emptySeats fw-bold`}
-                                        onClick={() => onAddSeat(seat.soGhe, seat.gia)}>
+                                        onClick={() => handleAddSeat(seat.soGhe, seat.gia)}>
                                         {seat.soGhe}
                                     </button>
                                 )

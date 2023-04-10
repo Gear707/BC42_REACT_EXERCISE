@@ -1,6 +1,16 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
-function SeatInfo({ selectedSeats, onDeleteSeat }) {
+function SeatInfo() {
+    const { selectedSeats } = useSelector(state => state);
+
+    const dispatch = useDispatch();
+
+    // xóa ghế đang chọn khỏi danh sách
+    const handleDeleteSeat = (number) => {
+        dispatch({ type: "delete_seat", payload: number });
+    };
+
     return (
         <div>
             <div className="d-flex">
@@ -32,7 +42,7 @@ function SeatInfo({ selectedSeats, onDeleteSeat }) {
                                     <td>{seat.gia}</td>
                                     <td>
                                         <button className="btn btn-danger"
-                                            onClick={() => onDeleteSeat(seat.soGhe)}>X</button>
+                                            onClick={() => handleDeleteSeat(seat.soGhe)}>X</button>
                                     </td>
                                 </tr>
                             )
