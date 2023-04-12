@@ -24,7 +24,7 @@ function movieBookingReducer(state = defaultState, action) {
             }
         }
         case "delete_seat": {
-            const seats = state.selectedSeats.filter((seat) => seat.soGhe !== action.payload);
+            const seats = state.selectedSeats.filter((seat) => seat.soGhe !== action.number);
             return { ...state, selectedSeats: seats };
         }
         default:

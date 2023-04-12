@@ -8,7 +8,7 @@ function SeatInfo() {
 
     // xóa ghế đang chọn khỏi danh sách
     const handleDeleteSeat = (number) => {
-        dispatch({ type: "delete_seat", payload: number });
+        dispatch({ type: "delete_seat", number });
     };
 
     return (
