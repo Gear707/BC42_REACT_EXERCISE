@@ -32,7 +32,7 @@ function SeatSelection() {
                             row.danhSachGhe.map((seat, index) => {
                                 // trường hợp ghế đã đặt từ trước thì gán class "bookedSeat" (màu cam)
                                 let bookedSeatClass = seat.daDat ? "bookedSeat" : "";
-                                let checkoutSeatClass = "";
+                                
                                 let selectedSeatClass = "";
                                 // kiểm tra tất cả ghế đã render với các ghế đang có trong danh sách chọn
                                 let seatIndex = selectedSeats.findIndex(
@@ -41,6 +41,7 @@ function SeatSelection() {
                                 // nếu tồn tại ghế đã chọn thì gán class "selectedSeat" (màu xanh lá)
                                 if (seatIndex !== -1) selectedSeatClass = "selectedSeat";
                                 
+                                let checkoutSeatClass = "";
                                 // kiểm tra ghế sau khi nhấn button đặt vé
                                 let checkoutIndex = checkoutSeats.findIndex(
                                     (checkoutSeat) => checkoutSeat.soGhe === seat.soGhe
