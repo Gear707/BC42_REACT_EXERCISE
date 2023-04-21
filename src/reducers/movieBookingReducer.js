@@ -1,8 +1,10 @@
+import { useState } from "react";
 import seatsData from "../MovieBooking/data.json";
 
 const defaultState = {
     allSeats: seatsData,
     selectedSeats: [],
+    checkoutSeats: [],
 };
 
 function movieBookingReducer(state = defaultState, action) {
@@ -26,6 +28,11 @@ function movieBookingReducer(state = defaultState, action) {
         case "delete_seat": {
             const seats = state.selectedSeats.filter((seat) => seat.soGhe !== action.number);
             return { ...state, selectedSeats: seats };
+        }
+        case "checkout_seat": {
+            const seatsToCheckout = [...state.selectedSeats];
+            const updatedSeats = [...state.checkoutSeats, ...seatsToCheckout];
+            return { ...state, selectedSeats: [], checkoutSeats: updatedSeats };
         }
         default:
             return state;

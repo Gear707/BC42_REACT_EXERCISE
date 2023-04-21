@@ -1,6 +1,11 @@
 $color-1: rgb(109, 238, 109);
+$color-2: rgb(0, 217, 255);
 $customBorder: 50px solid;
-$seatBorder: 3px solid orange;
+@mixin seatBorder($color){
+    border: 3px solid $color;
+} 
+    
+
 
 @mixin generalSize() {
     width: 45px;
@@ -25,7 +30,7 @@ $seatBorder: 3px solid orange;
 }
 
 .emptySeats {
-    border: $seatBorder;
+    @include seatBorder(white);
     font-size: 1rem;
     margin-left: 2%;
     margin-bottom: 1%;
@@ -52,21 +57,28 @@ $seatBorder: 3px solid orange;
 
 
 .bookedSeat {
-    border: $seatBorder;
+    @include seatBorder(orange);
     background-color: orange;
     font-size: 1rem;
     margin-left: 2%;
     margin-bottom: 1%;
-    color: #000;
+    color: black;
     cursor: no-drop !important;
     @include generalSize();
+}
 
+.checkoutSeat {
+    @include seatBorder($color-2);
+    background-color: $color-2;
+    color: black;
+    cursor: no-drop !important;
+    @include generalSize();
 }
 
 .selectedSeat {
+    @include seatBorder($color-1);
     background-color: $color-1;
-    border: 3px solid $color-1;
-    color: #000;
+    color: black;
     cursor: pointer;
     @include generalSize();
 }

@@ -11,6 +11,10 @@ function SeatInfo() {
         dispatch({ type: "delete_seat", number });
     };
 
+    const handleCheckout = () => {
+        dispatch({ type: "checkout_seat" });
+    };
+
     return (
         <div>
             <div className="d-flex">
@@ -25,13 +29,17 @@ function SeatInfo() {
                 <button className="emptySeats ms-0"></button>
                 <span className="mx-3 align-self-center">Ghế chưa đặt</span>
             </div>
+            <div className="d-flex mt-3">
+                <button className="checkoutSeat ms-0"></button>
+                <span className="mx-3 align-self-center">Ghế vừa mới đặt</span>
+            </div>
             <div className="mt-4">
                 <table className="table table-bordered text-light text-center">
                     <thead>
                         <tr>
                             <th>Số ghế</th>
                             <th>Giá</th>
-                            <th>Hủy</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +55,14 @@ function SeatInfo() {
                                 </tr>
                             )
                         })}
+                        <tr>
+                            <td>Tổng tiền</td>
+                            <td>{selectedSeats.reduce((total, seat) => total += seat.gia, 0)}</td>
+                            <td>
+                                <button className="btn btn-success"
+                                    onClick={handleCheckout}>Đặt vé</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
