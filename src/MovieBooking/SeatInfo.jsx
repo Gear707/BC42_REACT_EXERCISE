@@ -11,6 +11,7 @@ function SeatInfo() {
         dispatch({ type: "delete_seat", number });
     };
 
+    // hoàn tất đặt vé cho những ghế đang chọn
     const handleCheckout = () => {
         dispatch({ type: "checkout_seat" });
     };
