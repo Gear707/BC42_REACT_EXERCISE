@@ -20,7 +20,7 @@ function SeatInfo() {
         <div>
             <div className="d-flex">
                 <button className="bookedSeat ms-0"></button>
-                <span className="mx-3 align-self-center">Ghế đã đặt</span>
+                <span className="mx-3 align-self-center">Ghế đã đặt trước</span>
             </div>
             <div className="d-flex my-3">
                 <button className="selectedSeat"></button>

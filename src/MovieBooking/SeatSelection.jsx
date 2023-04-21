@@ -45,7 +45,7 @@ function SeatSelection() {
                                 let checkoutIndex = checkoutSeats.findIndex(
                                     (checkoutSeat) => checkoutSeat.soGhe === seat.soGhe
                                 );
-                                // nếu ghế đã được đặt thì gán class "checkoutSeat" (màu xanh nhạt)
+                                // nếu tồn tại ghế vừa được đặt sau khi nhấn button thì gán class "checkoutSeat" (màu xanh nhạt)
                                 if (checkoutIndex !== -1) checkoutSeatClass = "checkoutSeat";
 
                                 return (
